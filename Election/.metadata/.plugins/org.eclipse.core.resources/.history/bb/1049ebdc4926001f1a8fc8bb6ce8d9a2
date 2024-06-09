@@ -1,0 +1,11 @@
+package com.election.Servlets;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/deleteCandidate")
+public class DeleteCandidateList extends HttpServlet{
+	
+	
+
+}

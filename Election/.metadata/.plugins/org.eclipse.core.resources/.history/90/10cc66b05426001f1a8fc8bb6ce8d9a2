@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Announcement</title>
+</head>
+<body>
+		<h1>Online Voting</h1>
+		<form method="post" action="announce">
+				Announcement : <br/>
+				<textarea rows="6" cols="80"></textarea>
+				<br/><br/>
+				<input type="submit">
+		</form>
+</body>
+</html>

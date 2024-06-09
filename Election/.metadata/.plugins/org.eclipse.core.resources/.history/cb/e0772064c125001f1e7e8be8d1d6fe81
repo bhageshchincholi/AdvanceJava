@@ -1,0 +1,9 @@
+package com.election.Servlets;
+
+import javax.servlet.http.HttpServlet;
+
+public class ResultServlet extends HttpServlet{
+
+	
+	
+}

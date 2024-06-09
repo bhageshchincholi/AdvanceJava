@@ -1,0 +1,90 @@
+package com.election.Servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.election.DAO.CandidateDAO;
+import com.election.DAO.CandidateDaoImpl;
+import com.election.entity.Candidate;
+
+//@WebServlet("/result");
+public class ResultServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processRequest(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse resposnse) throws ServletException, IOException {
+		processRequest(request, resposnse);
+	}
+
+	protected  void processRequest(HttpServletRequest request,HttpServletResponse response) throws ServletException , IOException
+	{
+		List<Candidate> candidateList = new ArrayList<Candidate>();
+		try(CandidateDAO candidate = new CandidateDaoImpl())
+		{
+			candidateList = candidate.findAll();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Candidates Result</title>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<h3>Candidates</h3>");
+		
+		String userName = "";
+		Cookie[] arr = request.getCookies();
+		
+//		if(arr != null)
+//		{
+//			for(Cookie c :arr)
+//			{
+//				if(c.getName().equals("uname"))
+//				{
+//					userName = c.getValue();
+//					break;
+//				}
+//			}
+//		}
+//		
+		out.printf("Hello , %s<hr/>\n",userName);
+		
+		out.println("<tables>");
+		out.println("<tr>");
+		out.println("<td>id</td>");
+		out.println("<td>name</td>");
+		out.println("<td>party</td>");
+		out.println("<td>votes</td>");
+		out.println("</tr>");
+		
+		for(Candidate c: candidateList)
+		{
+			out.println("<tr>");
+			out.printf("<td>%d</td>",c.getId());
+			out.printf("<td>%s</td>",c.getName());
+			out.printf("<td>%s</td>",c.getParty());
+			out.printf("<td>%d</td>",c.getVotes());
+			out.println("</tr>");
+		}
+		out.println("</tables>");
+		out.println("</body>");
+		out.println("</html>");
+	}
+}

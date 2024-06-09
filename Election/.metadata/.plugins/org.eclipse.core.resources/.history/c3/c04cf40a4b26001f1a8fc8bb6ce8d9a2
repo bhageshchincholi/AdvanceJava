@@ -1,0 +1,10 @@
+package com.election.Servlets;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/editCandidate")
+public class EditCanidateList extends HttpServlet{
+	
+	
+}
