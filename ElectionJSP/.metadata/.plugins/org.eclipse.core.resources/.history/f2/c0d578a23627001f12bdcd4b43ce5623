@@ -1,0 +1,22 @@
+package com.election.beans;
+
+import com.election.DAO.CandidateDAO;
+import com.election.DAO.CandidateDaoImpl;
+
+public class CandidateListBin {
+	
+	public CandidateListBin()
+	{
+		
+	}
+	
+	public void authenticate()
+	{
+		try(CandidateDAO candidate = new CandidateDaoImpl())
+		{
+			candidate.findAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

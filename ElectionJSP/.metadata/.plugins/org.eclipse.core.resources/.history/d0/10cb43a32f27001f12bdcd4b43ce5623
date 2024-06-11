@@ -1,0 +1,29 @@
+package com.election.beans;
+
+import com.election.entity.User;
+
+public class RegistartionBin {
+
+	private User user;
+	
+	public RegistartionBin()
+	{
+		
+	}
+
+	static
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void authenticate()
+	{
+		
+	}
+}

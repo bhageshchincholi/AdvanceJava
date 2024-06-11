@@ -1,0 +1,52 @@
+package com.election.beans;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
+import com.election.entity.User;
+
+public class RegistartionBin {
+
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private String date;
+	private int status;
+	private String role;
+	private User user;
+	
+	public RegistartionBin()
+	{
+		
+	}
+
+	static
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void authenticate()
+	{
+		String url = "jdbc:mysql://localhost:3306/electiondb";
+		String user = "root";
+		String pass = "managaer";
+		
+		
+		try(Connection connection = DriverManager.getConnection(url,user,pass))
+		{
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

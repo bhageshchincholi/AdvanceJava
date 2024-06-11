@@ -1,0 +1,148 @@
+package com.election.beans;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
+import com.election.entity.User;
+
+public class RegistartionBin {
+
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private String date;
+	private int status;
+	private String role;
+	
+	private User user;
+	
+	public RegistartionBin()
+	{
+		user = new User();
+	}
+
+	static
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
+	public String getRole() {
+		return role;
+	}
+
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void authenticate()
+	{
+		String url = "jdbc:mysql://localhost:3306/electiondb";
+		String user = "root";
+		String pass = "managaer";
+		
+		
+		try(Connection connection = DriverManager.getConnection(url,user,pass))
+		{
+			String query = "INSERT INTO users VALUES(default, ?, ?, ?, ?, ?, ?, ?)";
+			
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, user);
+//			stmt.setString(1, user.getFirstName());
+//			stmt.setString(2, user.getLastName());
+//			stmt.setString(3, user.getEmail());
+//			stmt.setString(4, user.getPassword());
+//			stmt.setDate(5, user.getBirth());
+//			stmt.setInt(6, user.getStatus());
+//			stmt.setString(7, user.getRole());
+//			int cnt = stmt.executeUpdate();
+			
+			statement.executeUpdate();
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

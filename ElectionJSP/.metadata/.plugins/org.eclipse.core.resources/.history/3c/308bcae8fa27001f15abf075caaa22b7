@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vote</title>
+</head>
+<body>
+		
+		<h1>${initParam.appTitle }</h1>
+		<jsp:useBean id="vb" class="com.election.beans.VoteBin" />
+		<jsp:setProperty property="id" name="vb" param="id"/>
+		<jsp:getProperty property="userId" name="vb"  param = {vb.user.Id}"/>
+		
+		Hello ${vb.firstName }
+		
+		${vb.voteIncrement()}
+		<h4>Voter Done</h4>
+		
+		<a href="logout.jsp">Sign Out</a>
+</body>
+</html>

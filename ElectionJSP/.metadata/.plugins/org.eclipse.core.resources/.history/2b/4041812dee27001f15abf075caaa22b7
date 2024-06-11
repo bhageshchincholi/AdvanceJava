@@ -1,0 +1,9 @@
+package com.election.beans;
+
+public class UpdateCandidateBin {
+	private int id;
+	private String name;
+	private String party;
+	private int votes;
+	private int count;
+}

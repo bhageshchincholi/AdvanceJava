@@ -1,0 +1,54 @@
+package com.election.beans;
+
+import java.util.List;
+
+import com.election.DAO.CandidateDAO;
+import com.election.DAO.CandidateDaoImpl;
+import com.election.DAO.UserDAO;
+import com.election.DAO.UserDaoImpl;
+import com.election.entity.Candidate;
+
+public class VoteBin {
+	private int id;
+	private int userId;
+	private int count;
+	private boolean valid = false;
+	
+	public VoteBin() {
+		super();
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	public void voteIncrement()
+	{
+		try
+		{
+		
+			CandidateDAO candidateDaO = new CandidateDaoImpl();
+			count = candidateDaO.incrementVote(id);
+			
+			System.out.println("Id : "+id);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
+}

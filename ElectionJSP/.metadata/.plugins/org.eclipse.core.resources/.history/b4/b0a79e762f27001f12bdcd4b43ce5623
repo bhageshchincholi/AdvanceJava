@@ -1,0 +1,18 @@
+package com.election.beans;
+
+import com.election.entity.User;
+
+public class RegistartionBin {
+
+	private User user;
+	
+	public RegistartionBin()
+	{
+		
+	}
+	
+	public void authenticate()
+	{
+		
+	}
+}

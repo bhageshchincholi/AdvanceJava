@@ -1,0 +1,29 @@
+<%@page import="com.election.beans.RegistartionBin"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+</head>
+<body>
+		<%
+			RegistartionBin rbin = new RegistartionBin();
+			rbin.setFirstName(request.getParameter("firstName"));
+			rbin.setLastName(request.getParameter("lastName"));
+			rbin.setEmail(request.getParameter("email"));
+			rbin.setPassword(request.getParameter("password"));
+			rbin.setDate(request.getParameter("date"));
+			rbin.setStatus(0);
+			rbin.setRole("voter");
+			
+			rbin.registerUser();
+			
+			if(rbin.getCount() == 1)
+				out.println("Registration Successful !!");
+			else
+				out.println("Registration Failed !!");
+		%>	
+</body>
+</html>

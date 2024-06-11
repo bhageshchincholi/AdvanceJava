@@ -1,0 +1,20 @@
+package com.election.beans;
+
+import com.election.entity.User;
+
+public class LoginBin {
+	private String email;
+	private String password;
+	private User user;
+	
+	static
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
