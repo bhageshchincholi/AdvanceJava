@@ -1,0 +1,37 @@
+package com.blog.Bin;
+
+import java.util.List;
+
+import com.blog.DAO.CategoriesDAO;
+import com.blog.DAO.CategoriesDAOImpl;
+import com.blog.entity.Categories;
+
+public class CategoryListBin {
+	private List<Categories> categroiesList;
+
+	public List<Categories> getCategroiesList() {
+		return categroiesList;
+	}
+
+	public void setCategroiesList(List<Categories> categroiesList) {
+		this.categroiesList = categroiesList;
+	}
+
+	public CategoryListBin(List<Categories> categroiesList) {
+		super();
+		this.categroiesList = categroiesList;
+	}
+	
+	
+	public void fetchCategories()
+	{
+		try
+		{
+			CategoriesDAO catDao = new CategoriesDAOImpl();
+			 categroiesList = catDao.showCategories();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

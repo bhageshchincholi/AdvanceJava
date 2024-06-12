@@ -1,0 +1,10 @@
+package com.blog.Bin;
+
+public class RegistrationBin {
+	private String fullName;
+	private String email;
+	private String password;
+	private String phoneNo;
+	private String address;
+	
+}

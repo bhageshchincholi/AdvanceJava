@@ -1,0 +1,10 @@
+package com.blog.DAO;
+
+public class UserDAOImpl extends DAO implements UserDAO
+{
+
+	public UserDAOImpl() throws Exception {
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.blog.DAO;
+
+public class CategoriesDAOImpl extends DAO  {
+
+	public CategoriesDAOImpl() throws Exception {
+		
+	}
+
+}

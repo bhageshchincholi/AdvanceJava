@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+</head>
+<body>
+	<h1>${initParam.appTitle}</h1>
+	<jsp:useBean id="rb" class="com.blog.Bin.RegistrationBin" />
+	<jsp:setProperty property="*" name="rb"/>
+</body>
+</html>

@@ -1,0 +1,14 @@
+1718188288544	Delete element
+1718188757074	Move 'index.jsp' to 'webapp'
+1718195280747	Rename resource 'editCategories.jsp'
+1718197684973	Delete element
+1718200931578	Move 'bloglist.jsp' to 'Views'
+1718200934412	Move 'categories.jsp' to 'Views'
+1718200936267	Move 'deleteBlog.jsp' to 'Views'
+1718200938084	Move 'editCategories.jsp' to 'Views'
+1718200939751	Move 'index.jsp' to 'Views'
+1718200941726	Move 'login.jsp' to 'Views'
+1718200943600	Move 'myBlogList.jsp' to 'Views'
+1718200945265	Move 'newblog.jsp' to 'Views'
+1718200947465	Move 'newuser.jsp' to 'Views'
+1718200949293	Move 'register.jsp' to 'Views'

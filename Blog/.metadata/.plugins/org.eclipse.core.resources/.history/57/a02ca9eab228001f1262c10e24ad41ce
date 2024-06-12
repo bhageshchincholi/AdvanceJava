@@ -1,0 +1,33 @@
+package com.blog.Bin;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.blog.entity.Blog;
+
+public class BlogListBin {
+	private List<Blog> blogList;
+	
+	public BlogListBin()
+	{
+		this.blogList = new ArrayList<Blog>();
+	}
+
+	public List<Blog> getBlogList() {
+		return blogList;
+	}
+
+	public void setBlogList(List<Blog> blogList) {
+		this.blogList = blogList;
+	}
+	
+	public void fecthBlogs()
+	{
+		try
+		{
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

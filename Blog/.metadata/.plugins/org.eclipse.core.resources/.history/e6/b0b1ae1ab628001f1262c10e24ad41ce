@@ -1,0 +1,8 @@
+package com.blog.Bin;
+
+import com.blog.entity.Categories;
+
+public class CategoryListBin {
+	private Categories categories;
+
+}

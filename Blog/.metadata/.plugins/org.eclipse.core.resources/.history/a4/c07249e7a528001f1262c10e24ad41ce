@@ -1,0 +1,20 @@
+package com.blog.DAO;
+
+public class DAO {
+	
+
+	protected Connection connection;
+	public DAO() throws Exception {
+		connection = DBUtil.getConnection();
+	}
+	public void close() {
+		try {
+			if(connection != null)
+				connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+}
