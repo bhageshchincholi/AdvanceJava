@@ -1,0 +1,25 @@
+package com.sunbeam.testers;
+
+import org.hibernate.SessionFactory;
+
+import com.sunbeam.DAO.ProductDAO;
+import com.sunbeam.DAO.ProductDaoImpl;
+import com.sunbeam.utils.HibernateUtil;
+
+public class DeleteUser {
+	
+	public static void main(String[] args) {
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		
+		try
+		{
+			
+			ProductDAO dao = new ProductDaoImpl();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

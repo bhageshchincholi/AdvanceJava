@@ -1,0 +1,21 @@
+package com.sunbeam.testers;
+
+import org.hibernate.SessionFactory;
+
+import com.sunbeam.utils.HibernateUtil;
+
+public class DeleteUser {
+	
+	public static void main(String[] args) {
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		
+		try
+		{
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

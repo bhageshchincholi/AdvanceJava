@@ -1,0 +1,26 @@
+package com.sunbeam.testers;
+
+import java.util.Scanner;
+
+import org.hibernate.Hibernate;
+import org.hibernate.SessionFactory;
+
+import com.sunbeam.utils.HibernateUtil;
+
+public class DisplayProductwithPrice {
+	
+	public static void main(String[] args) {
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try
+		{
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.sunbeam.DAO;
+
+import java.util.List;
+
+import com.sunbeam.entitiy.Category;
+import com.sunbeam.entitiy.Product;
+
+
+
+public interface ProductDAO {
+
+	String addProduct(Product product);
+	Product displayProductById(Long id);
+	
+	List<Product> getAllProduct(Category category,double price1,double price2);
+	
+	String applyDiscount(Category category,double discount);
+	
+	String productPurchase(int quantity);
+	
+}

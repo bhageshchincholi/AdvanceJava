@@ -1,0 +1,24 @@
+package com.sunbeam.testers;
+
+import java.util.Scanner;
+
+import com.mysql.cj.xdevapi.SessionFactory;
+import com.sunbeam.utils.HibernateUtil;
+
+public class ProductPurchased {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		
+		try
+		{
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

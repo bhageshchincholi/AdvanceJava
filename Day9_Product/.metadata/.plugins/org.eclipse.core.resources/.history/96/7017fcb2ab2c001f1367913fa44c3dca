@@ -1,0 +1,120 @@
+package com.sunbeam.DAO;
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.*;
+
+import com.sunbeam.entitiy.Category;
+import com.sunbeam.entitiy.Product;
+import com.sunbeam.utils.HibernateUtil;
+
+public class ProductDaoImpl implements ProductDAO {
+	
+	// add product 
+	public String addProduct(Product product)
+	{
+		String  message = "Product not added !!";
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+			
+		Transaction tr =  session.beginTransaction();
+		
+		try
+		{
+			
+			Serializable userId = session.save(product);
+			
+			tr.commit();
+			
+			message = "Product Added succesfully !!";
+		}catch (RuntimeException e) {
+			if(tr != null)
+				tr.rollback();
+			
+			throw e;
+		}
+		
+		return message;
+	}
+	
+	
+	public Product displayProductById(Long id)
+	{
+		Product product = null;
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		Transaction tr = session.beginTransaction();
+		
+		try
+		{
+			
+			 product = session.get(Product.class, id);
+			 tr.commit();
+			
+		}catch (RuntimeException e) {
+			e.printStackTrace();
+			if(tr != null)
+				tr.rollback();
+		}
+		
+		return product;
+		
+	}
+
+
+	@Override
+	public List<Product> getAllProduct(Category category, double price1, double price2) {
+		
+		List<Product> product = null;
+		
+		String jpql = "select p from Product p where p.category =:cat and p.price between :start and :end";
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		Transaction tr = session.beginTransaction();
+		
+		try
+		{
+		
+			product = session.createQuery(jpql,Product.class).setParameter("cat",category).setParameter("start",price1).setParameter("end",price2).getResultList();
+			
+			tr.commit();
+			
+		}catch (RuntimeException e) {
+			if(tr != null)
+				tr.rollback();
+			
+			throw e;
+		}
+		
+		return product;
+	}
+
+
+	@Override
+	public String applyDiscount(Category category, double discount) {
+		
+		String message = "Apply Discount failed !!";
+		String jpql = "update Product p set p.price=p.price-:disc where p.category =:cat";
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		Transaction tr = session.beginTransaction();
+		
+		try
+		{
+			int rows = session.createQuery(jpql).setParameter("disc",discount).setParameter("cat",category).executeUpdate();
+			
+			tr.commit();
+			
+			message = "Discount Products are : "+rows;
+		}catch (RuntimeException e) {
+			if(tr != null)
+				tr.rollback();
+			
+			throw e;
+		}
+		return message;
+	}
+}
