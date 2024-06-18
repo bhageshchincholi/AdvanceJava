@@ -1,0 +1,5 @@
+package com.sunbeam.DAO;
+
+public interface ProductDao {
+
+}

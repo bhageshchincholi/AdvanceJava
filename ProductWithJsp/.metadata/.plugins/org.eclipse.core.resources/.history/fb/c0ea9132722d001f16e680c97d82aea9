@@ -1,0 +1,17 @@
+package com.sunbeam.DAO;
+
+import com.sunbeam.enities.Product;
+
+public class ProductDaoImpl implements ProductDao {
+
+	@Override
+	public String addProduct(Product product) {
+		
+		String message = "Product not added !!";
+		
+		
+		
+		return message;
+	}
+	
+}

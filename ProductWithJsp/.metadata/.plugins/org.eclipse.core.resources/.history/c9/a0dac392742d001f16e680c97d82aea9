@@ -1,0 +1,65 @@
+package com.sunbeam.DAO;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.sunbeam.enities.Product;
+import com.sunbeam.utils.HibernateUtil;
+
+public class ProductDaoImpl implements ProductDao {
+
+	@Override
+	public String addProduct(Product product) {
+		
+		String message = "Product not added !!";
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		Transaction tr = session.beginTransaction();
+		
+		try
+		{
+			
+			session.persist(product);
+			
+			message = "Product Added Successfully !!";
+			
+			tr.commit();
+			
+		}catch (RuntimeException e) {
+			
+			if(tr != null)
+				tr.rollback();
+			
+			throw e;
+		}
+		
+		
+		return message;
+	}
+
+	@Override
+	public List<Product> getProductList(Long categoryId) {
+		List<Product> productList = null;
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		Transaction tr = session.beginTransaction();
+		
+		try
+		{
+			
+		}catch (RuntimeException e) {
+			
+			if(tr != null)
+				tr.rollback();
+			
+			throw e;
+		}
+		
+		return productList;
+	}
+	
+}

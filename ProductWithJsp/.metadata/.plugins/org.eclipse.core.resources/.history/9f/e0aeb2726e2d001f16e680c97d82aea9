@@ -1,0 +1,21 @@
+package com.sunbeam.enities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "product")
+public class Product extends BaseEntitity {
+	
+	@Column (name = "product_name" , length = 50)
+	private String productName;
+	
+	private double price;
+	
+	private int quantity;
+	
+	// many to one 
+	// Product *---->1 Category 
+
+}

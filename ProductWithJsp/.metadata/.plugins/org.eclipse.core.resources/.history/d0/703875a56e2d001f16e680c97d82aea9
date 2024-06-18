@@ -1,0 +1,15 @@
+package com.sunbeam.enities;
+
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+
+@MappedSuperclass
+@Table(name = "categories")
+public class Category extends BaseEntitity{
+	
+	private String name;
+	
+	private String description;
+	
+
+}

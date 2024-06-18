@@ -1,0 +1,9 @@
+package com.sunbeam.DAO;
+
+import com.sunbeam.enities.Product;
+
+public interface ProductDao {
+
+	String addProduct(Product product);
+	
+}
