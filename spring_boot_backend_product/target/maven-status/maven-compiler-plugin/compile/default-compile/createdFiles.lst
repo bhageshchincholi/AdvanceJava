@@ -1,0 +1,6 @@
+com\app\dao\CategoryDao.class
+com\app\controller\CategoryController.class
+com\app\entities\BaseEntity.class
+com\app\service\CategoryService.class
+com\app\entities\Category.class
+com\app\Application.class
